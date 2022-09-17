@@ -150,6 +150,9 @@ class PersonalizedBase(Dataset):
         filename_tokens = os.path.splitext(filename)[0].replace(' ', '-').replace('_', '-').split('-')
         filename_tokens = [token for token in filename_tokens if token.isalpha()]
 
+        imgName = Path(imgPath).stem
+        print(imgName)
+        
         text = random.choice(templates).format(' '.join(filename_tokens), self.placeholder_token)
 
         example["caption"] = text
